@@ -10851,3 +10851,8 @@ html {
   width: 100px;
   height: 100px;
 } */
+
+.form {
+  justify-content: center;
+  justify-items: center;
+}
