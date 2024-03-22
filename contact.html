@@ -54,30 +54,23 @@
                             <p class="lead fw-normal text-muted mb-0">Risponderemo il prima possibile</p>
                         </div>
                         <div class="row gx-5 justify-content-center">
-                            <div class="col-lg-8 col-xl-6">
-                                <!-- * * * * * * * * * * * * * * *-->
-                                <!-- * * SB Forms Contact Form * *-->
-                                <!-- * * * * * * * * * * * * * * *-->
-                                <!-- This form is pre-integrated with SB Forms.-->
-                                <!-- To make this form functional, sign up at-->
-                                <!-- https://startbootstrap.com/solution/contact-forms-->
-                                <!-- to get an API token!-->
-                                <form
-                                    action="https://formspree.io/f/mjvlpvwa"
-                                    method="POST">
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="email" name="email required" placeholder="name@example.com" />
-                                        <label for="email">Email address</label>
-                                        
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <textarea class="form-control" id="message" name="text required" placeholder="Enter your message here..." style="height: 10rem" ></textarea>
-                                        <label for="message">Message</label>
-                                       
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                    <button id="submitButton" name="submit required">Invia</button>
+                            <div class="container mt-5">
+                                <div class="mb-3">
+                                <form name="contact" method="POST" data-netlify="true">
+                                    <p>
+                                      <label> Nome: <input type="text" name="name" /></label>
+                                    </p>
+                                    <p>
+                                      <label>Email: <input type="email" name="email" /></label>
+                                    </p>
+                                    <p>
+                                      <label>Messagio: <textarea name="message"></textarea></label>
+                                    </p>
+                                    <p>
+                                      <button type="submit">Invia</button>
+                                    </p>
                                 </form>
+                                </div>
                             </div>
                         </div>
                     </div>
