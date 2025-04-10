@@ -1,0 +1,10 @@
+{
+    "scripts": {
+      "prebuild": "node build-blog-index.js",
+      "build": "netlify build"
+    },
+    "dependencies": {
+      "gray-matter": "^4.0.3"
+      // altre dipendenze...
+    }
+  }

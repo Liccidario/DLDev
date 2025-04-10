@@ -1,0 +1,24 @@
+backend:
+  name: git-gateway
+  branch: main # Sostituisci con il nome del tuo branch principale (main o master)
+
+# Percorso dove verranno salvati i file multimediali (relativi alla radice del tuo sito)
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog" # Nome della collezione usato internamente
+    label: "Blog Post" # Etichetta nella UI
+    folder: "/blog" # Cartella dove vengono salvati i contenuti
+    create: true # Permette agli utenti di creare nuovi post
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Pattern per il nome del file
+    fields: # I campi per ogni post
+      - {label: "Titolo", name: "title", widget: "string"}
+      - {label: "Data di pubblicazione", name: "date", widget: "datetime"}
+      - {label: "Immagine in evidenza", name: "featuredImage", widget: "image", required: false}
+      - {label: "Categoria", name: "category", widget: "string"}
+      - {label: "Tag", name: "tags", widget: "list", default: ["blog"]}
+      - {label: "Tempo di lettura (min)", name: "readingTime", widget: "number", default: 5}
+      - {label: "Estratto", name: "excerpt", widget: "text"}
+      - {label: "Contenuto", name: "body", widget: "markdown"}
+      - {label: "Autore", name: "author", widget: "string", default: "Licci Dario"}

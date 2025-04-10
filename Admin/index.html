@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pannello Amministrativo</title>
+  <!-- Include lo script di Netlify CMS -->
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+</head>
+<body>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Seleziona il container dei post
+        const blogContainer = document.querySelector('.container .row.gx-5:has(.col-lg-4)');
+        
+        if (!blogContainer) return;
+        
+        // Carica i post dal CMS
+        fetch('/content/blog/index.json') // Questo file dovrà essere generato durante il build
+          .then(response => response.json())
+          .then(posts => {
+            // Svuota il container dai post statici
+            blogContainer.innerHTML = '';
+            
+            // Popola con i post dal CMS
+            if (posts && posts.length > 0) {
+              posts.forEach(post => {
+                // Crea l'elemento HTML per il post
+                const postElement = createPostElement({
+                  title: post.title,
+                  image: post.featuredImage || '/assets/default-image.webp',
+                  category: post.category || 'Blog',
+                  tags: post.tags || [],
+                  excerpt: post.excerpt || '',
+                  url: `/Blog/${post.slug}.html`,
+                  author: post.author || 'Licci Dario',
+                  author_image: '/assets/volto.png',
+                  date: post.date,
+                  read_time: `${post.readingTime || 5} min lettura`
+                });
+                
+                blogContainer.appendChild(postElement);
+              });
+            } else {
+              // Mostra un messaggio se non ci sono post
+              blogContainer.innerHTML = '<div class="col-12 text-center"><p>Nessun articolo disponibile al momento.</p></div>';
+            }
+          })
+          .catch(error => {
+            console.error('Errore nel caricamento dei post:', error);
+          });
+      });
+      
+      // Funzione per creare l'elemento HTML di un post
+      function createPostElement(post) {
+        // Lo stesso codice che hai già visto prima
+        // ...
+      }</body>
+</html>
