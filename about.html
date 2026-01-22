@@ -1,88 +1,161 @@
 <!DOCTYPE html>
 <html lang="it">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Chi Siamo - DLDev</title>
-        
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        
-        <link href="./css/styles.css" rel="stylesheet" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Chi Siamo - La storia e la missione di DLDev" />
+    <meta name="author" content="Licci Dario" />
+    <title>Chi Siamo - DLDev</title>
+    
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-        <style>
-            :root { --bs-dark: #0D1B2A; --bs-primary: #3E5C76; --bs-cyan: #778DA9; }
-            .navbar-custom { background-color: var(--bs-dark) !important; border-bottom: 2px solid var(--bs-primary); }
-            .hero-section { background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 100%); color: white; padding: 4rem 0; clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); }
-            .text-cyan { color: var(--bs-cyan) !important; }
-            .card-tech { border-radius: 15px; border: 1px solid rgba(0,0,0,0.1); transition: 0.3s; background: white; }
-            .card-tech:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        </style>
-    </head>
-    <body class="d-flex flex-column min-vh-100">
-        <main class="flex-shrink-0">
-            <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="./assets/logo.png" alt="Logo" width="150" height="50" onerror="this.src='https://via.placeholder.com/150x50?text=DLDev'">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navContent">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="about.html">Chi Siamo</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contatti</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pricing.html">Prezzi</a></li>
-                        </ul>
+    <style>
+        :root {
+            --blu-notte: #0B0C10;    
+            --blu-elettrico: #1F2833; 
+            --argento: #C5C6C7;      
+            --azzurro-ciano: #66FCF1; 
+            --bianco-puro: #FFFFFF;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--blu-notte);
+            color: var(--argento);
+            overflow-x: hidden;
+        }
+
+        /* Navbar Custom */
+        .navbar-custom {
+            background-color: var(--blu-notte);
+            border-bottom: 2px solid var(--azzurro-ciano);
+        }
+        .navbar-dark .nav-link { color: var(--argento); }
+        .navbar-dark .nav-link:hover, .navbar-dark .nav-link.active { color: var(--azzurro-ciano); }
+
+        /* Hero Section About */
+        .hero-about {
+            background: linear-gradient(135deg, #0B0C10 0%, #1F2833 100%);
+            padding: 6rem 0;
+            border-bottom: 1px solid rgba(102, 252, 241, 0.1);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+
+        .text-cyan { color: var(--azzurro-ciano) !important; }
+
+        /* Card Fondazione */
+        .img-foundation {
+            border: 2px solid var(--azzurro-ciano);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease;
+        }
+        .img-foundation:hover {
+            transform: scale(1.02);
+        }
+
+        /* Team Card 3D */
+        .perspective-3d { perspective: 1000px; }
+        .card-team {
+            background-color: var(--blu-elettrico);
+            border: 1px solid var(--azzurro-ciano);
+            color: var(--argento);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+        .card-team:hover {
+            transform: rotateY(15deg) translateY(-10px);
+            box-shadow: 0 15px 35px rgba(102, 252, 241, 0.15);
+        }
+
+        .avatar-border {
+            border: 3px solid var(--azzurro-ciano);
+            padding: 5px;
+            background: var(--blu-notte);
+        }
+
+        footer {
+            background-color: #050505;
+            border-top: 1px solid var(--blu-elettrico);
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <main class="flex-shrink-0">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+            <div class="container px-5">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/logo.png" alt="DLDev Logo" width="180">
+                </a> 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="about.html">Chi Siamo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contatti</a></li>
+                        <li class="nav-item"><a class="nav-link" href="blog-home.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="hero-about text-center">
+            <div class="container px-5">
+                <h1 class="display-4 fw-bolder mb-3 text-white">La nostra <span class="text-cyan">Missione</span></h1>
+                <p class="lead mb-0 text-white-50">Sviluppiamo il futuro digitale con integrità e innovazione.</p>
+            </div>
+        </header>
+
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                        <img class="img-fluid rounded-3 img-foundation" src="assets/fondazione.webp" alt="Fondazione DLDev" onerror="this.src='https://via.placeholder.com/600x400/1f2833/66fcf1?text=La+Fondazione'">
+                    </div>
+                    <div class="col-lg-6 mt-4 mt-lg-0">
+                        <h2 class="fw-bolder text-white">L'Origine di <span class="text-cyan">DLDev</span></h2>
+                        <p class="fs-5">DLDev nasce dalla visione di unire l'ingegneria software alla creatività artigianale.</p>
+                        <p class="text-muted">La nostra filosofia si basa sulla trasparenza totale e sulla costruzione di infrastrutture digitali che non siano solo funzionali, ma scalabili e sicure. Ogni riga di codice che scriviamo è pensata per durare nel tempo.</p>
                     </div>
                 </div>
-            </nav>
+            </div>
+        </section>
 
-            <header class="hero-section text-center">
-                <div class="container px-5">
-                    <h1 class="display-4 fw-bolder mb-3">La nostra <span class="text-cyan">Missione</span></h1>
-                    <p class="lead mb-4 text-white-50">Semplifichiamo lo sviluppo web per far crescere il tuo business.</p>
+        <section class="py-5 bg-dark bg-opacity-25">
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bolder text-white">Il <span class="text-cyan">Founder</span></h2>
+                    <p class="text-muted">Dietro ogni grande progetto c'è una visione chiara.</p>
                 </div>
-            </header>
-
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6">
-                            <img class="img-fluid rounded shadow" src="./assets/fondazione.webp" alt="Fondazione" onerror="this.src='https://via.placeholder.com/600x400'">
-                        </div>
-                        <div class="col-lg-6 mt-4 mt-lg-0">
-                            <h2 class="fw-bolder">La Fondazione</h2>
-                            <p class="text-muted">DLDev nasce dalla passione per l'informatica e la voglia di creare soluzioni software su misura, solide e innovative.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="py-5 bg-light">
-                <div class="container px-5 my-5">
-                    <div class="text-center mb-5">
-                        <h2 class="fw-bolder">Il nostro Team</h2>
-                    </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <div class="card-tech p-4 text-center">
-                                <img class="img-fluid rounded-circle mb-3 px-4" src="./assets/volto.webp" alt="Dario" onerror="this.src='https://via.placeholder.com/150'">
-                                <h5 class="fw-bold">Licci Dario</h5>
-                                <p class="text-primary small">Founder & CEO</p>
+                <div class="row gx-5 justify-content-center perspective-3d">
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="card card-team p-4 text-center rounded-4">
+                            <img class="img-fluid rounded-circle mb-4 avatar-border mx-auto" src="assets/volto.png" alt="Licci Dario" style="width: 150px; height: 150px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/150'">
+                            <h4 class="fw-bold text-white">Licci Dario</h4>
+                            <p class="text-cyan fw-bold text-uppercase small mb-3">Founder & Web Developer</p>
+                            <p class="text-muted small">Specializzato in architetture web moderne e soluzioni personalizzate per il business.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#!" class="text-cyan fs-4"><i class="bi bi-linkedin"></i></a>
+                                <a href="#!" class="text-cyan fs-4"><i class="bi bi-github"></i></a>
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </div>
-            </section>
-        </main>
-
-        <footer class="bg-dark py-4 mt-auto">
-            <div class="container px-5 text-center">
-                <p class="text-white small m-0">Copyright &copy; DLDev 2026</p>
             </div>
-        </footer>
+        </section>
+    </main>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+    <footer class="py-4 mt-auto">
+        <div class="container px-5 text-center">
+            <p class="text-white-50 small m-0">Copyright &copy; DLDev 2026 - All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
