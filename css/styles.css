@@ -133,3 +133,30 @@ footer {
 /* Utility Class per Bootstrap */
 .bg-dark-custom { background-color: var(--bs-dark) !important; }
 .text-cyan { color: var(--bs-cyan) !important; }
+
+
+
+/* Contenitore per attivare la prospettiva 3D */
+.perspective-container {
+    perspective: 1000px; /* Determina la profondità dell'effetto 3D */
+}
+
+/* La Card con rotazione 3D */
+.card-3d {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
+    transform-style: preserve-3d;
+    /* Rotazione fissa di 45 gradi verso sinistra (Y positivo) */
+    transform: rotateY(45deg); 
+    box-shadow: -20px 20px 30px rgba(13, 27, 42, 0.2);
+}
+
+/* Effetto al passaggio del mouse (opzionale: la raddrizza o la inclina di più) */
+.card-3d:hover {
+    transform: rotateY(0deg); /* Si raddrizza quando ci passi sopra */
+    box-shadow: 0px 10px 20px rgba(13, 27, 42, 0.1);
+}
+
+/* Aggiunge profondità agli elementi interni alla card */
+.card-3d .card-body {
+    transform: translateZ(50px); /* I testi sembrano sollevati dalla card */
+}

@@ -13,17 +13,17 @@
     
     <style>
         :root {
-            --blu-notte: #0B0C10;    /* Sfondi e Authority */
-            --blu-elettrico: #1F2833; /* Bottoni e Link */
-            --argento: #E0E1DD;      /* Testi secondari e sfondi chiari */
-            --azzurro-ciano: #66FCF1; /* Icone e dettagli tecnici */
+            --blu-notte: #0B0C10;    
+            --blu-elettrico: #1F2833; 
+            --argento: #C5C6C7;      
+            --azzurro-ciano: #66FCF1; 
             --bianco-puro: #FFFFFF;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--argento);
-            color: var(--azzurro-ciano);
+            background-color: var(--blu-notte);
+            color: var(--argento);
         }
 
         /* Navbar */
@@ -38,27 +38,30 @@
             color: var(--azzurro-ciano);
         }
 
-        /* Hero Section */
-        .bg-hero {
+        /* Hero & Sections uniformate senza righe di separazione */
+        .bg-custom-dark {
             background-color: var(--blu-notte);
             color: var(--argento);
-            border-bottom: 5px solid var(--blu-elettrico);
         }
+        
         .text-cyan {
-            color: var(--blu-elettrico) !important;
+            color: var(--azzurro-ciano) !important;
         }
 
         /* Bottoni */
         .btn-primary {
-            background-color: var(--blu-elettrico);
-            border-color: var(--blu-elettrico);
-        }
-        .btn-primary:hover {
             background-color: var(--azzurro-ciano);
             border-color: var(--azzurro-ciano);
+            color: var(--blu-notte);
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background-color: #45a29e;
+            border-color: #45a29e;
+            color: var(--blu-notte);
         }
         .btn-outline-cyan {
-            color: var(--argento);
+            color: var(--azzurro-ciano);
             border-color: var(--azzurro-ciano);
         }
         .btn-outline-cyan:hover {
@@ -66,26 +69,37 @@
             color: var(--blu-notte);
         }
 
-        /* Card */
-        .card {
-            background-color: var(--bianco-puro);
-            border: 1px solid var(--azzurro-ciano);
-            transition: transform 0.3s ease;
+        /* --- SISTEMA CARD 3D --- */
+        .perspective-3d {
+            perspective: 1200px; 
+            display: flex;
+            justify-content: center;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--blu-elettrico);
-            box-shadow: 0 10px 20px rgba(13, 27, 42, 0.1);
+
+        .card-3d-small {
+            width: 80%;
+            transform-style: preserve-3d;
+            transform: rotateY(-20deg) rotateX(5deg);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--azzurro-ciano) !important;
+            background: var(--blu-elettrico);
+            color: var(--argento);
         }
-        .badge-tech {
-            background-color: var(--blu-notte);
+
+        .card-3d-small:hover {
+            transform: rotateY(-5deg) rotateX(2deg) scale(1.02);
+            box-shadow: 0 10px 20px rgba(102, 252, 241, 0.2);
+        }
+
+        .card-body h5, .card-body h6 {
             color: var(--azzurro-ciano);
         }
 
-        /* Features */
+        /* Features Icon */
         .feature-icon {
             background-color: var(--blu-elettrico);
-            color: var(--argento);
+            color: var(--azzurro-ciano);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -93,26 +107,14 @@
             width: 3.5rem;
             border-radius: 0.75rem;
             margin-bottom: 1.5rem;
-        }
-
-        /* Form / Newsletter Area */
-        .bg-newsletter {
-            background-color: var(--blu-elettrico);
-            color: var(--bianco-puro);
+            border: 1px solid var(--azzurro-ciano);
         }
 
         footer {
-            background-color: var(--blu-notte);
-            color: var(--argento);
+            background-color: #050505;
+            border-top: 1px solid var(--blu-elettrico);
         }
     </style>
-
-    <script type="text/javascript">
-        (function(m, o, n, t, e, r, _){
-            m['__GetResponseAnalyticsObject'] = e;m[e] = m[e] || function() {(m[e].q = m[e].q || []).push(arguments)};
-            r = o.createElement(n);_ = o.getElementsByTagName(n)[0];r.async = 1;r.src = t;r.setAttribute('crossorigin', 'use-credentials');_.parentNode.insertBefore(r, _);
-        })(window, document, 'script', 'https://ga.getresponse.com/script/dda9360f-0800-4d68-8c7e-45fe2c7d7b45/ga.js', 'GrTracking');
-    </script>
 </head>
 <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
@@ -121,58 +123,63 @@
                 <a class="navbar-brand" href="index.html">
                     <img src="/assets/logo.png" alt="DLDev Logo" height="45">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">Chi Siamo</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="contact.html">Contatti</a></li>
-                        <li class="nav-item"><a class="nav-link" href="pricing.html">Prezzi</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contatti</a></li>
                         <li class="nav-item"><a class="nav-link" href="blog-home.html">Blog</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <header class="bg-hero py-5">
+        <header class="bg-custom-dark py-5">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center justify-content-center">
                     <div class="col-lg-8 col-xl-7">
                         <div class="my-5 text-center text-xl-start">
                             <h1 class="display-4 fw-bolder text-white mb-3">Professionalità e <br><span class="text-cyan">Sicurezza Digitale</span></h1>
-                            <p class="lead fw-normal text-white-50 mb-4">Supporto IT d'autorità per chi desidera trasformare la propria passione in una carriera stabile e sicura nel mondo del coding.</p>
+                            <p class="lead fw-normal text-white-50 mb-4">Assistenza ITC e servizi sistemistici avanzati. Trasformiamo la complessità tecnologica in un asset stabile e sicuro, con l'esperienza di chi ha gestito l'informatica sul campo.</p>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Inizia Ora</a>
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">I Nostri Servizi</a>
                                 <a class="btn btn-outline-cyan btn-lg px-4" href="contact.html">Richiedi Consulenza</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-5 d-none d-xl-block text-center">
-                        <img class="img-fluid rounded-3 shadow-lg" src="assets/header.webp" alt="Professional IT">
+                    <div class="col-xl-5 d-none d-xl-block text-center perspective-3d">
+                        <div class="card card-3d-small overflow-hidden border-0">
+                            <img class="img-fluid" src="assets/header.webp" alt="Professional IT">
+                            <div class="card-body bg-dark text-start p-3">
+                                <h6 class="fw-bold mb-1">DLDev Authority</h6>
+                                <p class="text-white-50 small mb-0">System Security & Consulting</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
 
-        <section class="py-5" id="features">
+        <section class="py-5 bg-custom-dark" id="features">
             <div class="container px-5 my-5">
                 <div class="row gx-5">
                     <div class="col-lg-4 mb-5">
-                        <h2 class="fw-bolder mb-0">Proteggi il tuo <br><span class="text-cyan">futuro nel Tech</span></h2>
+                        <h2 class="fw-bolder mb-0 text-white">Servizi ITC <br><span class="text-cyan">Sistemistici</span></h2>
                     </div>
                     <div class="col-lg-8">
                         <div class="row gx-5 row-cols-1 row-cols-md-2">
                             <div class="col mb-5">
                                 <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
-                                <h2 class="h5 fw-bold">Stabilità Garantita</h2>
-                                <p class="text-muted small">Metodologie consolidate dai grandi player del networking per assicurare fondamenta solide al tuo apprendimento.</p>
+                                <h2 class="h5 fw-bold text-white">Infrastrutture Sicure</h2>
+                                <p class="text-white-50 small">Implementazione di sistemi di sicurezza per proteggere la continuità operativa del tuo business.</p>
                             </div>
                             <div class="col mb-5">
                                 <div class="feature-icon"><i class="bi bi-cpu"></i></div>
-                                <h2 class="h5 fw-bold">Tecnologia Moderna</h2>
-                                <p class="text-muted small">Utilizzo di strumenti all'avanguardia per lo sviluppo software, mantenendo la sicurezza come priorità.</p>
+                                <h2 class="h5 fw-bold text-white">Consulenza Diretta</h2>
+                                <p class="text-white-50 small">Esperienza maturata "sul campo" per offrirti soluzioni sistemistiche solide e concrete.</p>
                             </div>
                         </div>
                     </div>
@@ -180,57 +187,40 @@
             </div>
         </section>
 
-        <section class="py-5 bg-white">
+        <section class="py-5 bg-custom-dark">
             <div class="container px-5 my-5">
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center mb-5">
-                        <h2 class="fw-bolder">Risorse Tecniche</h2>
-                        <p class="lead fw-normal text-muted">Approfondimenti sulla sicurezza e lo sviluppo software.</p>
+                        <h2 class="fw-bolder text-white">Risorse Tecniche</h2>
+                        <p class="lead fw-normal text-white-50">Approfondimenti sulla sicurezza informatica.</p>
                     </div>
                 </div>
-                <div class="row gx-5">
-                    <div class="col-lg-4 mb-5">
-                        <div class="card h-100 shadow-sm">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-4 mb-5 perspective-3d">
+                        <div class="card card-3d-small h-100 border-0">
                             <img class="card-img-top" src="https://res.cloudinary.com/liccidario-com/image/upload/v1695556558/Resize_bootstrap5_tddko6.webp" alt="Security">
                             <div class="card-body p-4">
-                                <div class="badge badge-tech rounded-pill mb-2">Sicurezza</div>
+                                <div class="badge bg-dark text-cyan rounded-pill mb-2">Sicurezza</div>
                                 <h5 class="card-title mb-3 fw-bold">Best Practices 2024</h5>
-                                <p class="card-text text-muted small">Come proteggere il tuo codice e i dati degli utenti fin dalla prima riga di sviluppo.</p>
+                                <p class="text-white-50 small">Proteggere l'infrastruttura aziendale dalle minacce moderne.</p>
                             </div>
                             <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                <div class="d-flex align-items-center">
-                                    <div class="small">
-                                        <div class="fw-bold">Licci Dario</div>
-                                        <div class="text-muted">Gennaio 2024 &middot; 8 min lettura</div>
-                                    </div>
-                                </div>
+                                <div class="small text-white-50">Licci Dario &middot; 8 min lettura</div>
                             </div>
                         </div>
                     </div>
-                    </div>
-
-                <aside class="bg-newsletter rounded-3 p-4 p-sm-5 mt-5 shadow">
-                    <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
-                        <div class="mb-4 mb-xl-0">
-                            <div class="fs-3 fw-bold">Rimani al sicuro.</div>
-                            <div class="text-white-50">Iscriviti per ricevere aggiornamenti tecnici e consigli sulla sicurezza informatica.</div>
-                        </div>
-                        <div class="ms-xl-4">
-                            <getresponse-form form-id="abd7f19c-d839-483a-8dcf-f7685f5d798f" e="0"></getresponse-form>
-                        </div>
-                    </div>
-                </aside>
+                </div>
             </div>
         </section>
     </main>
 
     <footer class="py-4 mt-auto">
-        <div class="container px-5">
+        <div class="container px-5 text-center">
             <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                <div class="col-auto"><div class="small m-0">Copyright &copy; DLDev 2024 - Professional IT Support</div></div>
+                <div class="col-auto"><div class="small m-0 text-white-50">Copyright &copy; DLDev 2024 - Professional IT Support</div></div>
                 <div class="col-auto">
                     <a class="link-light small text-decoration-none" href="#!">Privacy</a>
-                    <span class="mx-1">&middot;</span>
+                    <span class="text-white-50 mx-1">&middot;</span>
                     <a class="link-light small text-decoration-none" href="#!">Terms</a>
                 </div>
             </div>
