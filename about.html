@@ -3,59 +3,57 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Chi Siamo - DLDev" />
-        <meta name="author" content="DLDev" />
         <title>Chi Siamo - DLDev</title>
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <link href="/css/styles.css" rel="stylesheet" />
+        
+        <link href="./css/styles.css" rel="stylesheet" />
+
+        <style>
+            :root { --bs-dark: #0D1B2A; --bs-primary: #3E5C76; --bs-cyan: #778DA9; }
+            .navbar-custom { background-color: var(--bs-dark) !important; border-bottom: 2px solid var(--bs-primary); }
+            .hero-section { background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 100%); color: white; padding: 4rem 0; clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); }
+            .text-cyan { color: var(--bs-cyan) !important; }
+            .card-tech { border-radius: 15px; border: 1px solid rgba(0,0,0,0.1); transition: 0.3s; background: white; }
+            .card-tech:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        </style>
     </head>
-    <body class="d-flex flex-column">
+    <body class="d-flex flex-column min-vh-100">
         <main class="flex-shrink-0">
             <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="/index.html">
-                        <img src="/assets/logo.png" alt="DLDev Logo" width="150" height="50">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="./assets/logo.png" alt="Logo" width="150" height="50" onerror="this.src='https://via.placeholder.com/150x50?text=DLDev'">
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="/about.html">Chi Siamo</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/contact.html">Contatti</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/pricing.html">Prezzi</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/faq.html">FAQ</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/blog-home.html">Blog</a></li>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="about.html">Chi Siamo</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contatti</a></li>
+                            <li class="nav-item"><a class="nav-link" href="pricing.html">Prezzi</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
 
-            <header class="hero-section">
+            <header class="hero-section text-center">
                 <div class="container px-5">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8 col-xxl-6">
-                            <div class="text-center">
-                                <h1 class="hero-title">Semplifichiamo il <span class="highlight-cyan">Web</span> per tutti.</h1>
-                                <p class="lead fw-normal text-white-50 mb-4">Democratizziamo la creazione di siti web, rendendo lo sviluppo accessibile, equo e orientato all'innovazione.</p>
-                                <a class="btn btn-primary btn-lg" href="#storia">Scopri la nostra storia</a>
-                            </div>
-                        </div>
-                    </div>
+                    <h1 class="display-4 fw-bolder mb-3">La nostra <span class="text-cyan">Missione</span></h1>
+                    <p class="lead mb-4 text-white-50">Semplifichiamo lo sviluppo web per far crescere il tuo business.</p>
                 </div>
             </header>
 
-            <section class="py-5" id="storia">
+            <section class="py-5">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 align-items-center">
                         <div class="col-lg-6">
-                            <div class="card-tech overflow-hidden shadow-sm">
-                                <img class="img-fluid" src="/assets/fondazione.webp" alt="Fondazione DLDev" />
-                            </div>
+                            <img class="img-fluid rounded shadow" src="./assets/fondazione.webp" alt="Fondazione" onerror="this.src='https://via.placeholder.com/600x400'">
                         </div>
-                        <div class="col-lg-6 pt-4 pt-lg-0">
-                            <h2 class="fw-bolder">La <span class="text-primary">Fondazione</span></h2>
-                            <p class="lead fw-normal text-muted mb-0">DLDev nasce dalla passione per l'informatica maturata negli anni universitari. Dopo hackathon e competizioni tecnologiche, ho deciso di trasformare questa visione in realtà concreta, offrendo soluzioni su misura basate su dedizione e competenza.</p>
+                        <div class="col-lg-6 mt-4 mt-lg-0">
+                            <h2 class="fw-bolder">La Fondazione</h2>
+                            <p class="text-muted">DLDev nasce dalla passione per l'informatica e la voglia di creare soluzioni software su misura, solide e innovative.</p>
                         </div>
                     </div>
                 </div>
@@ -63,76 +61,28 @@
 
             <section class="py-5 bg-light">
                 <div class="container px-5 my-5">
-                    <div class="row gx-5 align-items-center">
-                        <div class="col-lg-6 order-first order-lg-last">
-                            <div class="card-tech overflow-hidden shadow-sm">
-                                <img class="img-fluid" src="/assets/crescita.webp" alt="Crescita DLDev" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <h2 class="fw-bolder">Crescita & <span class="text-primary">Oltre</span></h2>
-                            <p class="lead fw-normal text-muted mb-0">Oggi DLDev è sinonimo di eccellenza e fiducia. Abbiamo creato un ambiente collaborativo dove ogni idea conta, permettendoci di innovare costantemente nel mondo dello sviluppo software e della consulenza tecnologica.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="py-5">
-                <div class="container px-5 my-5">
                     <div class="text-center mb-5">
-                        <h2 class="fw-bolder">Il nostro <span class="text-primary">Team</span></h2>
-                        <p class="lead fw-normal text-muted">Dedicato alla qualità e al tuo successo</p>
+                        <h2 class="fw-bolder">Il nostro Team</h2>
                     </div>
-                    <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center text-center">
-                        <div class="col mb-5">
-                            <div class="card-tech p-4 h-100 shadow-sm border-0">
-                                <img class="img-fluid rounded-circle mb-4 px-4" src="/assets/volto.webp" alt="Dario Licci" />
-                                <h5 class="fw-bolder">Licci Dario</h5>
-                                <div class="fst-italic text-primary">Founder & CEO</div>
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="card-tech p-4 text-center">
+                                <img class="img-fluid rounded-circle mb-3 px-4" src="./assets/volto.webp" alt="Dario" onerror="this.src='https://via.placeholder.com/150'">
+                                <h5 class="fw-bold">Licci Dario</h5>
+                                <p class="text-primary small">Founder & CEO</p>
                             </div>
                         </div>
-                        <div class="col mb-5">
-                            <div class="card-tech p-4 h-100 shadow-sm border-0">
-                                <img class="img-fluid rounded-circle mb-4 px-4" src="/assets/volto anonimo.png" alt="Team Member" />
-                                <h5 class="fw-bolder">Arden Vasek</h5>
-                                <div class="fst-italic text-primary">Web Developer</div>
-                            </div>
                         </div>
-                        <div class="col mb-5">
-                            <div class="card-tech p-4 h-100 shadow-sm border-0">
-                                <img class="img-fluid rounded-circle mb-4 px-4" src="/assets/volto anonimo.png" alt="Team Member" />
-                                <h5 class="fw-bolder">Toribio Nerthus</h5>
-                                <div class="fst-italic text-primary">Designer</div>
-                            </div>
-                        </div>
-                        <div class="col mb-5">
-                            <div class="card-tech p-4 h-100 shadow-sm border-0">
-                                <img class="img-fluid rounded-circle mb-4 px-4" src="/assets/volto anonimo.png" alt="Team Member" />
-                                <h5 class="fw-bolder">Malvina Cilla</h5>
-                                <div class="fst-italic text-primary">Marketing</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
         </main>
 
-        <footer class="mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; DLDev 2026</div></div>
-                    <div class="col-auto">
-                        <a class="link-light small" href="#!">Privacy</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
-                    </div>
-                </div>
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5 text-center">
+                <p class="text-white small m-0">Copyright &copy; DLDev 2026</p>
             </div>
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="/js/scripts.js"></script>
     </body>
 </html>
