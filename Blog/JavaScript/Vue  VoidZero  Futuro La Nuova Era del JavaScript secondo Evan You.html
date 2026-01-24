@@ -1,131 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" Vue + VoidZero = Futuro? La Nuova Era del JavaScript secondo Evan You="" />
-        <meta name="author" Licci Dario="" />
-        <title>DLDev - Coding e Coffy</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="/css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column">
-        <main class="flex-shrink-0">
-            <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar sticky-top bg-body-tertiary">
-                <div class="container px-5">
-                    <img src="/assets/logo.png" width="180" height="60" href="index.html">                    
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/about.html">Chi Siamo</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/contact.html">Contatti</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/pricing.html">Prezzi</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/faq.html">FAQ</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/blog-home.html">Blog</a></li>
+<html lang="it">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Vue + VoidZero = Futuro? La Nuova Era del JavaScript secondo Evan You" />
+    <meta name="author" content="Licci Dario" />
+    <title>Vue & VoidZero - DLDev Blog</title>
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --blu-notte: #0B0C10;    
+            --blu-elettrico: #1F2833; 
+            --argento: #C5C6C7;      
+            --azzurro-ciano: #66FCF1; 
+            --bianco-puro: #FFFFFF;
+        }
 
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--blu-notte);
+            color: var(--argento);
+            overflow-x: hidden;
+        }
 
-                            
-                            <!-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                                    <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
-                                    <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li> -->
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+        /* Navbar */
+        .navbar-custom {
+            background-color: var(--blu-notte);
+            border-bottom: 2px solid var(--azzurro-ciano);
+        }
+        .navbar-dark .nav-link {
+            color: var(--argento);
+        }
+        .navbar-dark .nav-link:hover, .navbar-dark .nav-link.active {
+            color: var(--azzurro-ciano);
+        }
+
+        .text-cyan {
+            color: var(--azzurro-ciano) !important;
+        }
+
+        /* Container Post */
+        .post-container {
+            background-color: var(--blu-elettrico);
+            border-radius: 15px;
+            padding: 3rem;
+            border: 1px solid rgba(102, 252, 241, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .badge-js {
+            background-color: #f7df1e;
+            color: #000;
+            font-weight: bold;
+            padding: 0.6em 1.2em;
+        }
+
+        /* Immagine 3D */
+        .perspective-3d {
+            perspective: 1200px;
+            margin-bottom: 2.5rem;
+        }
+        .img-3d {
+            transform: rotateY(-5deg) rotateX(2deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--azzurro-ciano);
+            transition: transform 0.5s ease;
+        }
+        .img-3d:hover { transform: rotateY(0deg) rotateX(0deg); }
+
+        /* Highlight box */
+        .tech-card {
+            background: var(--blu-notte);
+            border: 1px solid var(--blu-elettrico);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            background-color: #050505;
+            border-top: 1px solid var(--blu-elettrico);
+        }
+    </style>
+</head>
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+            <div class="container px-5">
+                <a class="navbar-brand" href="../../index.html">
+                    <img src="../../assets/logo.png" width="180" height="60" alt="DLDev Logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../about.html">Chi Siamo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../contact.html">Contatti</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../../blog-home.html">Blog</a></li>
+                    </ul>
                 </div>
-            </nav>
-            <!-- Page Content-->
-            <section class="py-5">
-                <div class="container px-5 my-5">
-                    <div class="row gx-5">
-                        <div class="col-lg-3">
-                            <div class="d-flex align-items-center mt-lg-5 mb-4">
-                                <img class="img-fluid rounded-circle" src="/assets/volto.png" alt="..." />
-                                <div class="ms-3">
-                                    <div class="fw-bold">Licci Dario</div>
-                                    <div class="text-muted">Web Developer</div>
-                                </div>
+            </div>
+        </nav>
+
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5">
+                    <div class="col-lg-3">
+                        <div class="d-flex align-items-center mt-lg-5 mb-4 p-3 bg-dark rounded-3 border border-secondary">
+                            <img class="img-fluid rounded-circle border border-info" src="../../assets/volto.png" width="50" alt="Licci Dario" />
+                            <div class="ms-3">
+                                <div class="fw-bold text-white">Licci Dario</div>
+                                <div class="text-cyan small">Web Developer</div>
                             </div>
-                        </div>       
-                        <div class="col-lg-9">
-                            <!-- Post content-->
-                            <article class="post1">
-                                <!-- Post header-->
-                                <header class="mb-4">
-                                    <!-- Post title-->
-                                    <h1 class="fw-bolder mb-1">Roadmap 2024!</h1>
-                                    <!-- Post meta content-->
-                                    <div class="text-muted fst-italic mb-2">16 Febbraio 2024</div>
-                                    <!-- Post categories-->
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="/Blog/Roadmap/2024">Roadmap 2024</a>
-                                    <a class="badge bg-secondary text-decoration-none link-light" href="#!"></a>
-                                </header>
-                                <!-- Preview image figure-->
-                                <figure class="mb-4"><img class="img-fluid rounded" src="https://res.cloudinary.com/liccidario-com/image/upload/v1708089595/Web-Development-Roadmap-1_pehslg.webp" alt="..." /></figure>
-                                <!-- Post content-->
-                                <section class="mb-5">
-                                   <p>
-                                    Evan You, creatore di Vue, ha condiviso la sua visione per il futuro del framework e ha presentato VoidZero, una nuova iniziativa pensata per rivoluzionare lo sviluppo JavaScript su larga scala.
+                        </div>
+                    </div>
 
-**Vue 3.6 e le novità principali:**
-- Refactoring del sistema di reattività con miglioramenti nelle performance, derivati da una libreria sperimentale chiamata "alien signals".
-- Introduzione di "Vapor Mode", una modalità sperimentale che mira ad aumentare le prestazioni mantenendo la compatibilità con l’ecosistema esistente.
+                    <div class="col-lg-9">
+                        <article class="post-container">
+                            <header class="mb-4">
+                                <h1 class="fw-bolder mb-1 text-white">Vue + VoidZero: <span class="text-cyan">Il Futuro di JS</span></h1>
+                                <div class="text-muted fst-italic mb-3">Postato il 13 Gennaio, 2026</div>
+                                <div class="mb-4">
+                                    <span class="badge badge-js rounded-pill">JavaScript</span>
+                                    <span class="badge border border-info text-cyan ms-2">Vue.js</span>
+                                </div>
+                            </header>
 
-**VoidZero:**
-- Nuova azienda fondata da Evan You con lo scopo di costruire una toolchain unificata per applicazioni JavaScript, migliorando produttività e qualità del codice.
-- A differenza di progetti passati come Rome, VoidZero parte da una base solida: Vite, già ampiamente adottato nella community.
-- Il modello di business prevede strumenti premium per build, qualità e sicurezza rivolti ad aziende enterprise, mantenendo il cuore open-source gratuito.
+                            <figure class="perspective-3d">
+                                <img class="img-fluid rounded img-3d" src="../../assets/bootrasp5 con react.webp" alt="Vue and JS Future" />
+                            </figure>
 
-**Open Source e Venture Capital:**
-- Evan You ha assicurato che VoidZero manterrà i valori open-source, anche grazie a una struttura che limita l’influenza degli investitori.
-- I finanziamenti permettono di ridurre i rischi e accelerare lo sviluppo, senza compromettere l'integrità dei progetti.
+                            <section class="mb-5">
+                                <p class="fs-5 mb-4">Evan You, creatore di Vue, ha condiviso la sua visione per il futuro del framework e ha presentato <strong>VoidZero</strong>, una nuova iniziativa pensata per rivoluzionare lo sviluppo JavaScript su larga scala.</p>
+                                
+                                <div class="tech-card">
+                                    <h4 class="text-cyan"><i class="bi bi-cpu me-2"></i> Vue 3.6 e Performance</h4>
+                                    <ul class="text-white-50">
+                                        <li>Refactoring della reattività basato su <span class="text-white">"alien signals"</span>.</li>
+                                        <li>Introduzione del <span class="text-white">Vapor Mode</span> per prestazioni estreme senza overhead.</li>
+                                    </ul>
+                                </div>
 
-**Futuro di JavaScript:**
-- Node.js continuerà ad avere un ruolo dominante, ma con l'influenza crescente di tool alternativi come Bun e Deno.
-- Vite e VoidZero potrebbero diventare lo standard per lo sviluppo su larga scala.
-- Vue continua a crescere in popolarità: il 93,4% degli sviluppatori dichiara di volerlo usare di nuovo (rispetto al 90% del 2021).
+                                <div class="tech-card">
+                                    <h4 class="text-cyan"><i class="bi bi-box-seam me-2"></i> Cos'è VoidZero?</h4>
+                                    <p class="text-white-50 small">VoidZero è la nuova toolchain unificata che parte dalla solida base di <strong>Vite</strong>. L'obiettivo è creare uno standard enterprise che unisca build, qualità e sicurezza in un unico ecosistema coerente.</p>
+                                </div>
 
-**Conclusione:**
-La combinazione tra innovazione tecnica (Vapor Mode), una toolchain unificata (VoidZero) e una visione chiara su scala enterprise pone Vue e l’ecosistema che lo circonda al centro del futuro sviluppo JavaScript.
-                                   </p>
-                                </section>
-                            </article>
-                            <!-- Comments section-->
-                            <section>
+                                <h2 class="fw-bolder mb-4 mt-5 text-white">Open Source e Mercato</h2>
+                                <p class="fs-5 mb-4">Evan You ha assicurato che VoidZero manterrà i valori open-source. I finanziamenti Venture Capital serviranno ad accelerare lo sviluppo, mantenendo il cuore del progetto gratuito per la community.</p>
+                                
+                                <h2 class="fw-bolder mb-4 mt-5 text-white">Conclusione</h2>
+                                <p class="fs-5 mb-4">La combinazione tra innovazione tecnica (Vapor Mode) e una toolchain unificata pone Vue al centro del futuro sviluppo web. Il 93,4% degli sviluppatori conferma di voler continuare a investire in questo ecosistema.</p>
+                            </section>
+
+                            <section class="mt-5 border-top border-secondary pt-5">
+                                <h4 class="text-white mb-4"><i class="bi bi-chat-dots text-cyan me-2"></i>Discussione</h4>
                                 <div class="powr-comments" id="6e147b54_1693069309"></div>
                                 <script src="https://www.powr.io/powr.js?platform=html"></script>
                             </section>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <!-- Footer-->
-        <footer class="bg-dark py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2023</div></div>
-                    <div class="col-auto">
-                        <a class="link-light small" href="#!">Privacy</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
-                        <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
+                        </article>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+        </section>
+    </main>
+
+    <footer class="py-4 mt-auto">
+        <div class="container px-5 text-center">
+            <p class="text-white-50 small m-0">Copyright &copy; DLDev 2026</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

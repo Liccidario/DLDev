@@ -133,3 +133,76 @@ footer {
 /* Utility Class per Bootstrap */
 .bg-dark-custom { background-color: var(--bs-dark) !important; }
 .text-cyan { color: var(--bs-cyan) !important; }
+
+
+
+/* Contenitore per attivare la prospettiva 3D */
+.perspective-container {
+    perspective: 1000px; /* Determina la profondità dell'effetto 3D */
+}
+
+/* La Card con rotazione 3D */
+.card-3d {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
+    transform-style: preserve-3d;
+    /* Rotazione fissa di 45 gradi verso sinistra (Y positivo) */
+    transform: rotateY(45deg); 
+    box-shadow: -20px 20px 30px rgba(13, 27, 42, 0.2);
+}
+
+/* Effetto al passaggio del mouse (opzionale: la raddrizza o la inclina di più) */
+.card-3d:hover {
+    transform: rotateY(0deg); /* Si raddrizza quando ci passi sopra */
+    box-shadow: 0px 10px 20px rgba(13, 27, 42, 0.1);
+}
+
+/* Aggiunge profondità agli elementi interni alla card */
+.card-3d .card-body {
+    transform: translateZ(50px); /* I testi sembrano sollevati dalla card */
+}
+
+
+
+/* --- OTTIMIZZAZIONE MOBILE --- */
+@media (max-width: 768px) {
+    /* Riduce il titolo per non farlo andare a capo in modo brusco */
+    h1.display-4, .post-container h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.2;
+    }
+
+    /* Riduce il padding interno della card per dare respiro al testo */
+    .post-container {
+        padding: 1.5rem !important;
+        margin-left: -10px;
+        margin-right: -10px;
+        border-radius: 10px;
+    }
+
+    /* Sistema la sidebar dell'autore (Licci Dario) */
+    .col-lg-3 .bg-dark {
+        margin-top: 0 !important;
+        margin-bottom: 1.5rem !important;
+        padding: 1rem !important;
+    }
+
+    /* Immagini e figure: rimuove l'effetto 3D troppo marcato che taglia i bordi su mobile */
+    .perspective-3d {
+        perspective: none;
+    }
+    .img-3d {
+        transform: none !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Testo leggermente più piccolo per la leggibilità */
+    .fs-5 {
+        font-size: 1rem !important;
+    }
+    
+    /* Navbar: riduce il logo su mobile */
+    .navbar-brand img {
+        width: 140px !important;
+        height: auto !important;
+    }
+}
