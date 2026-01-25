@@ -7,6 +7,9 @@
     <meta name="author" content="Licci Dario" />
     <title>DLDev - Coding e Coffee</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -31,22 +34,11 @@
             background-color: var(--blu-notte);
             border-bottom: 2px solid var(--azzurro-ciano);
         }
-        .navbar-dark .nav-link {
-            color: var(--argento);
-        }
-        .navbar-dark .nav-link:hover {
-            color: var(--azzurro-ciano);
-        }
+        .navbar-dark .nav-link { color: var(--argento); }
+        .navbar-dark .nav-link:hover, .navbar-dark .nav-link.active { color: var(--azzurro-ciano); }
 
-        /* Hero & Sections uniformate senza righe di separazione */
-        .bg-custom-dark {
-            background-color: var(--blu-notte);
-            color: var(--argento);
-        }
-        
-        .text-cyan {
-            color: var(--azzurro-ciano) !important;
-        }
+        .bg-custom-dark { background-color: var(--blu-notte); color: var(--argento); }
+        .text-cyan { color: var(--azzurro-ciano) !important; }
 
         /* Bottoni */
         .btn-primary {
@@ -55,48 +47,26 @@
             color: var(--blu-notte);
             font-weight: 600;
         }
-        .btn-primary:hover {
-            background-color: #45a29e;
-            border-color: #45a29e;
-            color: var(--blu-notte);
-        }
-        .btn-outline-cyan {
-            color: var(--azzurro-ciano);
-            border-color: var(--azzurro-ciano);
-        }
-        .btn-outline-cyan:hover {
-            background-color: var(--azzurro-ciano);
-            color: var(--blu-notte);
-        }
+        .btn-primary:hover { background-color: #45a29e; color: var(--blu-notte); }
+        .btn-outline-cyan { color: var(--azzurro-ciano); border-color: var(--azzurro-ciano); }
+        .btn-outline-cyan:hover { background-color: var(--azzurro-ciano); color: var(--blu-notte); }
 
-        /* --- SISTEMA CARD 3D --- */
-        .perspective-3d {
-            perspective: 1200px; 
-            display: flex;
-            justify-content: center;
-        }
-
+        /* Card 3D */
+        .perspective-3d { perspective: 1200px; display: flex; justify-content: center; }
         .card-3d-small {
-            width: 80%;
             transform-style: preserve-3d;
-            transform: rotateY(-20deg) rotateX(5deg);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: rotateY(-15deg) rotateX(5deg);
+            transition: all 0.5s ease;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-            border: 1px solid var(--azzurro-ciano) !important;
+            border: 1px solid rgba(102, 252, 241, 0.2) !important;
             background: var(--blu-elettrico);
-            color: var(--argento);
         }
-
         .card-3d-small:hover {
             transform: rotateY(-5deg) rotateX(2deg) scale(1.02);
             box-shadow: 0 10px 20px rgba(102, 252, 241, 0.2);
+            border-color: var(--azzurro-ciano) !important;
         }
 
-        .card-body h5, .card-body h6 {
-            color: var(--azzurro-ciano);
-        }
-
-        /* Features Icon */
         .feature-icon {
             background-color: var(--blu-elettrico);
             color: var(--azzurro-ciano);
@@ -110,10 +80,7 @@
             border: 1px solid var(--azzurro-ciano);
         }
 
-        footer {
-            background-color: #050505;
-            border-top: 1px solid var(--blu-elettrico);
-        }
+        footer { background-color: #050505; border-top: 1px solid var(--blu-elettrico); }
     </style>
 </head>
 <body class="d-flex flex-column h-100">
@@ -121,14 +88,14 @@
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
             <div class="container px-5">
                 <a class="navbar-brand" href="index.html">
-                    <img src="/assets/logo.png" alt="DLDev Logo" height="45">
+                    <img src="assets/logo.png" alt="DLDev Logo" height="45">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">Chi Siamo</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contatti</a></li>
                         <li class="nav-item"><a class="nav-link" href="blog-home.html">Blog</a></li>
@@ -143,7 +110,7 @@
                     <div class="col-lg-8 col-xl-7">
                         <div class="my-5 text-center text-xl-start">
                             <h1 class="display-4 fw-bolder text-white mb-3">Professionalità e <br><span class="text-cyan">Sicurezza Digitale</span></h1>
-                            <p class="lead fw-normal text-white-50 mb-4">Assistenza ITC e servizi sistemistici avanzati. Trasformiamo la complessità tecnologica in un asset stabile e sicuro, con l'esperienza di chi ha gestito l'informatica sul campo.</p>
+                            <p class="lead fw-normal text-white-50 mb-4">Assistenza ITC e servizi sistemistici avanzati. Trasformiamo la complessità tecnologica in un asset stabile e sicuro.</p>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                                 <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">I Nostri Servizi</a>
                                 <a class="btn btn-outline-cyan btn-lg px-4" href="contact.html">Richiedi Consulenza</a>
@@ -154,7 +121,7 @@
                         <div class="card card-3d-small overflow-hidden border-0">
                             <img class="img-fluid" src="assets/header.webp" alt="Professional IT">
                             <div class="card-body bg-dark text-start p-3">
-                                <h6 class="fw-bold mb-1">DLDev Authority</h6>
+                                <h6 class="fw-bold mb-1 text-cyan">DLDev Authority</h6>
                                 <p class="text-white-50 small mb-0">System Security & Consulting</p>
                             </div>
                         </div>
@@ -171,12 +138,12 @@
                     </div>
                     <div class="col-lg-8">
                         <div class="row gx-5 row-cols-1 row-cols-md-2">
-                            <div class="col mb-5">
+                            <div class="col mb-5 text-center text-md-start">
                                 <div class="feature-icon"><i class="bi bi-shield-lock"></i></div>
                                 <h2 class="h5 fw-bold text-white">Infrastrutture Sicure</h2>
                                 <p class="text-white-50 small">Implementazione di sistemi di sicurezza per proteggere la continuità operativa del tuo business.</p>
                             </div>
-                            <div class="col mb-5">
+                            <div class="col mb-5 text-center text-md-start">
                                 <div class="feature-icon"><i class="bi bi-cpu"></i></div>
                                 <h2 class="h5 fw-bold text-white">Consulenza Diretta</h2>
                                 <p class="text-white-50 small">Esperienza maturata "sul campo" per offrirti soluzioni sistemistiche solide e concrete.</p>
@@ -195,23 +162,22 @@
                         <p class="lead fw-normal text-white-50">Approfondimenti sulla sicurezza informatica.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 mb-5 perspective-3d">
-    <a href="./Blog/Bootstrap/Bootstrap 5.html" class="text-decoration-none">
-        <div class="card card-3d-small h-100 border-0">
-            <img class="card-img-top" src="https://res.cloudinary.com/liccidario-com/image/upload/v1695556558/Resize_bootstrap5_tddko6.webp" alt="Security">
-            <div class="card-body p-4">
-                <div class="badge bg-dark text-cyan rounded-pill mb-2">Bootstrap 5</div>
-                <h5 class="card-title mb-3 fw-bold text-white">Bootstrap 5</h5>
-                <p class="text-white-50 small">Bootstrap 5: Struttura e Soluzioni</p>
-                <div class="text-cyan small fw-bold mt-2">Leggi di più <i class="bi bi-arrow-right"></i></div>
-            </div>
-        </div>
-    </a>
-</div>
-                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
-                                <div class="small text-white-50">Licci Dario &middot; 8 min lettura</div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-4 mb-5 perspective-3d">
+                        <a href="./Blog/Bootstrap/Bootstrap 5.html" class="text-decoration-none w-100">
+                            <div class="card card-3d-small h-100 border-0">
+                                <img class="card-img-top" src="https://res.cloudinary.com/liccidario-com/image/upload/v1695556558/Resize_bootstrap5_tddko6.webp" alt="Bootstrap 5">
+                                <div class="card-body p-4">
+                                    <div class="badge bg-dark text-cyan rounded-pill mb-2">Sviluppo</div>
+                                    <h5 class="card-title mb-3 fw-bold text-white">Bootstrap 5: Guida</h5>
+                                    <p class="text-white-50 small">Scopri come strutturare progetti solidi con l'ultimo framework CSS.</p>
+                                    <div class="text-cyan small fw-bold mt-2">Leggi di più <i class="bi bi-arrow-right"></i></div>
+                                </div>
+                                <div class="card-footer p-4 pt-0 bg-transparent border-0">
+                                    <div class="small text-white-50">Licci Dario &middot; 8 min lettura</div>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -220,17 +186,22 @@
 
     <footer class="py-4 mt-auto">
         <div class="container px-5 text-center">
-            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                <div class="col-auto"><div class="small m-0 text-white-50">Copyright &copy; DLDev 2024 - Professional IT Support</div></div>
-                <div class="col-auto">
-                    <a class="link-light small text-decoration-none" href="#!">Privacy</a>
-                    <span class="text-white-50 mx-1">&middot;</span>
-                    <a class="link-light small text-decoration-none" href="#!">Terms</a>
-                </div>
-            </div>
+            <p class="small m-0 text-white-50">Copyright &copy; DLDev 2026 - Professional IT Support</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </body>
 </html>
