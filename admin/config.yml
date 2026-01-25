@@ -1,19 +1,15 @@
 backend:
   name: git-gateway
-  branch: main # Assicurati che sia il nome del tuo branch su GitHub
+  branch: main # <--- Verifica che su GitHub il tuo branch si chiami 'main'
 
-media_folder: "assets/img/blog" # Dove verranno salvate le immagini caricate
-public_folder: "/assets/img/blog"
+media_folder: "assets"
+public_folder: "/assets"
 
 collections:
   - name: "blog"
-    label: "Post del Blog"
-    folder: "Blog" # La cartella dove hai i post
-    create: true # Ti permette di creare nuovi post dal pannello
-    slug: "{{slug}}"
+    label: "Post"
+    folder: "Blog"
+    create: true
     fields:
       - { label: "Titolo", name: "title", widget: "string" }
-      - { label: "Data Pubblicazione", name: "date", widget: "datetime" }
-      - { label: "Categoria", name: "category", widget: "select", options: ["Bootstrap", "JavaScript", "Roadmap"] }
-      - { label: "Immagine Copertina", name: "image", widget: "image" }
-      - { label: "Corpo del Post", name: "body", widget: "markdown" }
+      - { label: "Corpo", name: "body", widget: "markdown" }
